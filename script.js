@@ -53,17 +53,18 @@ buttons.forEach((button) => {
 operations.forEach((button) => {
     button.addEventListener("click", () => {
         if(button.textContent === "="){
-            if(secondOperand == 0 && operator === "/"){
-                display.value = "";
-                result.style.fontSize = "18px";
-                result.style.fontWeight = "bold";
-                result.value = "DIVISION BY ZERO DETECTED";
-            }else if(firstOperand == 0 && secondOperand == 0){
+            if(firstOperand == 0 && secondOperand == 0){
                 selectedNumber = "";
                 display.value = "";
                 result.value = 0;
             }else{
                 secondOperand = Number(selectedNumber);
+                if(secondOperand == 0 && operator === "/"){
+                    display.value = "";
+                    result.style.fontSize = "18px";
+                    result.style.fontWeight = "bold";
+                    result.value = "DIVISION BY ZERO DETECTED";
+                }
                 let results = operate(operator, firstOperand, secondOperand);
                 selectedNumber = results;
                 result.value = selectedNumber;
@@ -72,20 +73,21 @@ operations.forEach((button) => {
                 secondOperand = 0;
             }
         }else{
-            if(secondOperand == 0 && operator === "/"){
-                display.value = "";
-                result.style.fontSize = "18px";
-                result.style.fontWeight = "bold";
-                result.value = "DIVISION BY ZERO DETECTED";
-            }
             if(firstOperand != 0 && secondOperand == 0){
                 secondOperand = Number(selectedNumber);
-                let results = operate(operator, firstOperand, secondOperand);
-                operator = button.textContent;
-                display.value = results + operator;
-                firstOperand = results;
-                secondOperand = 0;
-                selectedNumber = "";
+                if(secondOperand == 0 && operator === "/"){
+                    display.value = "";
+                    result.style.fontSize = "18px";
+                    result.style.fontWeight = "bold";
+                    result.value = "DIVISION BY ZERO DETECTED";
+                }else{
+                    let results = operate(operator, firstOperand, secondOperand);
+                    operator = button.textContent;
+                    display.value = results + operator;
+                    firstOperand = results;
+                    secondOperand = 0;
+                    selectedNumber = "";
+                }
             }else if(firstOperand == 0 && secondOperand == 0){
                 operator = button.textContent;
                 if(operator === "-" && selectedNumber.length === 0){
