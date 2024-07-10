@@ -44,10 +44,9 @@ buttons.forEach((button) => {
         if(selectedNumber.includes(".") && button.textContent === "."){
             selectedNumber += "";
             display.value += "";
-        }else{
-            selectedNumber += button.textContent;
-            display.value += button.textContent;
         }
+        selectedNumber += button.textContent;
+        display.value += button.textContent;
     });
 });
 
@@ -78,7 +77,8 @@ operations.forEach((button) => {
                 result.style.fontSize = "18px";
                 result.style.fontWeight = "bold";
                 result.value = "DIVISION BY ZERO DETECTED";
-            }else if(firstOperand != 0 && secondOperand == 0){
+            }
+            if(firstOperand != 0 && secondOperand == 0){
                 secondOperand = Number(selectedNumber);
                 let results = operate(operator, firstOperand, secondOperand);
                 operator = button.textContent;
@@ -86,17 +86,16 @@ operations.forEach((button) => {
                 firstOperand = results;
                 secondOperand = 0;
                 selectedNumber = "";
-            }else if(operator != "" && firstOperand == 0 && secondOperand == 0){
+            }else if(firstOperand == 0 && secondOperand == 0){
                 operator = button.textContent;
-                firstOperand = Number(selectedNumber);
-                selectedNumber = "";
-                display.value += operator;
-            }else if( operator == "" && firstOperand == 0 && secondOperand == 0){
-                operator = button.textContent;
-                if(operator === "-"){
-                    selectedNumber += operator; 
+                if(operator === "-" && selectedNumber.length === 0){
+                    selectedNumber += operator;
+                    display.value += operator; 
+                }else{
+                    firstOperand = Number(selectedNumber);
+                    selectedNumber = "";
+                    display.value += operator;
                 }
-                display.value += operator;
             }
         }
     })
