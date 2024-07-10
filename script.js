@@ -1,3 +1,7 @@
+const buttons = document.querySelectorAll(".calculator-buttons .digits");
+const display = document.querySelector(".calculator-display #calculation");
+const clear = document.querySelector(".clear-button .operators");
+
 let firstOperand = 0;
 let operator = null;
 let secondOperand = 0;
@@ -31,3 +35,17 @@ function operate(operator, operand1, operand2){
     }
 }
 
+let selectedNumbers = "";
+console.log(buttons);
+
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        selectedNumbers += button.textContent;
+        display.value = selectedNumbers;
+    });
+});
+
+clear.addEventListener("click", () => {
+    selectedNumbers = "";
+    display.value = "";
+});

@@ -15,7 +15,7 @@ button{
 
 .calculator-body, button{
     border: 0;
-    border-radius: 16px;
+    border-radius: 12px;
 }
 
 .calculator-body{
@@ -45,10 +45,11 @@ button{
 }
 
 .calculator-display input{
-    height: 40px;
+    height: 60px;
     border: none;
     text-align: right;
-    font-size: 1.5em;
+    font-size: 2em;
+    padding: 0;
 }
 
 .calculator-display #calculation{
@@ -57,7 +58,7 @@ button{
 }
 
 .calculator-display #result{
-    font-size: 2em;
+    font-size: 3em;
     border-bottom-left-radius: 16px;
     border-bottom-right-radius: 16px;
 }
