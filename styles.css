@@ -5,12 +5,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #FEFBD8;
 }
 
 button{
     font-family: "Helvetica", "sans-serif";
     font-size: 200%;
     cursor: pointer;
+    color: white;
 }
 
 .calculator-body, button{
@@ -25,6 +27,7 @@ button{
     padding: 8px;
     background-color: royalblue;
     width: 332px;
+    background-color: #EECEB9;
 }
 
 .calculator-display{
@@ -70,4 +73,12 @@ button{
 .calculator-buttons button{
     width: 80px;
     height: 80px;
+}
+
+button.digits{
+    background-color: #987D9A;
+}
+
+button.operators{
+    background-color: #BB9AB1;
 }

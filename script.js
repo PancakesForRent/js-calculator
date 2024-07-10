@@ -37,8 +37,6 @@ function operate(operator, operand1, operand2){
     }
 }
 
-console.log(operate("+", Number("54.16"), Number("18.90")));
-
 let selectedNumber = "";
 
 buttons.forEach((button) => {
@@ -69,7 +67,7 @@ operations.forEach((button) => {
                 secondOperand = Number(selectedNumber);
                 let results = operate(operator, firstOperand, secondOperand);
                 selectedNumber = results;
-                result.value = results;
+                result.value = selectedNumber;
                 display.value = "";
                 firstOperand = 0;
                 secondOperand = 0;
